@@ -3,7 +3,7 @@ import EmployeeTableRow from './EmployeeTableRow';
 
 const EmployeeTable= (props)=>{
     return(
-        <table class="table">
+        <table className="table">
   <thead>
     <tr>
       <th scope="col">#</th>
@@ -14,8 +14,16 @@ const EmployeeTable= (props)=>{
     </tr>
   </thead>
   <tbody>
-   
+   {props.employees.map(employee=>{
+       return <EmployeeTableRow key ={employee._id}
+                                employee={employee}
+                                deleteHandler={props.deleteHandler}
+                                showEditForm={props.showEditForm}
+                                />
+   })}
   </tbody>
 </table>
     )
 }
+
+export default EmployeeTable;
